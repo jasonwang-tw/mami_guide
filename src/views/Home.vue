@@ -29,7 +29,7 @@
   };
 </script>
 
-<style>
+<style lang="scss" scoped>
   .share_msg {
     min-height: 500px;
   }
