@@ -29,11 +29,11 @@
       <div class="text-xl font-extrabold text-center">您希望預約的時間</div>
       <!-- booking_ui -->
       <bookingUi />
-      <div
-        class="bg-main py-4 text-center mt-10 text-white text-2xl rounded-lg font-bold"
+      <router-link
+        to="/star_rating"
+        class="bg-main py-4 text-center mt-10 text-white text-xl rounded-lg font-bold block"
+        >下一步：填寫預約資訊</router-link
       >
-        下一步：填寫預約資訊
-      </div>
     </div>
   </div>
 </template>

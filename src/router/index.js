@@ -4,6 +4,10 @@ import booking from '../views/booking.vue'
 
 import booking_1 from '../views/booking_step_1.vue'
 
+import star_rating from '../views/star_rating.vue'
+import comment from '../views/comment.vue'
+import goolge_comment from '../views/goolge_comment.vue'
+
 const routes = [
   {
     path: '/',
@@ -19,15 +23,22 @@ const routes = [
     path: '/booking_1',
     name: 'booking_1',
     component: booking_1
+  },
+  {
+    path: '/star_rating',
+    name: 'star_rating',
+    component: star_rating
+  },
+  {
+    path: '/comment',
+    name: 'comment',
+    component: comment
+  },
+  {
+    path: '/goolge_comment',
+    name: 'goolge_comment',
+    component: goolge_comment
   }
-  // {
-  //   path: '/about',
-  //   name: 'About',
-  //   route level code-splitting
-  //   this generates a separate chunk (about.[hash].js) for this route
-  //   which is lazy-loaded when the route is visited.
-  //   component: () => import(/* webpackChunkName: "about" */ '../views/About.vue')
-  // }
 ]
 
 const router = createRouter({
