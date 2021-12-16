@@ -18,20 +18,25 @@
     </div>
     <!-- day -->
     <div class="flex justify-between text-sm mt-5 mb-10">
-      <div class="text-main">14</div>
-      <div class="day_avtive">15</div>
-      <div>16</div>
-      <div>17</div>
-      <div>18</div>
-      <div>19</div>
-      <div>20</div>
+      <div
+        v-for="(d, i) in booking_day"
+        :key="i"
+        :class="{ 'text-main': i === 0, day_avtive: i === booking_day_active }"
+        @click="booking_day_active = i"
+      >
+        {{ d }}
+      </div>
     </div>
     <!-- time -->
     <div class="grid grid-cols-3 gap-3">
       <div v-for="(t, i) in booking_time" :key="i" class="text-center">
         <div
           class="border py-3 rounded-lg text-sm"
-          :class="{ booking_disable: t.booking === false }"
+          :class="{
+            booking_disable: t.booking === false,
+            booking_active: i === booking_time_avtive && t.booking === true,
+          }"
+          @click="booking(t.booking, i)"
         >
           {{ t.hour }}
         </div>
@@ -45,6 +50,9 @@
     name: "booking_ui",
     data() {
       return {
+        booking_day_active: "",
+        booking_day: [14, 15, 16, 17, 18, 19, 20],
+        booking_time_avtive: "",
         booking_time: [
           {
             hour: "10:00",
@@ -85,6 +93,15 @@
         ],
       };
     },
+    methods: {
+      booking(e, i) {
+        if (e === true) {
+          this.booking_time_avtive = i;
+        } else {
+          return;
+        }
+      },
+    },
   };
 </script>
 
@@ -107,5 +124,10 @@
   }
   .booking_disable {
     color: gainsboro;
+  }
+  .booking_active {
+    color: white;
+    border: none;
+    background: linear-gradient(91.97deg, #f55f8d 14.73%, #f8ae56 97.52%);
   }
 </style>

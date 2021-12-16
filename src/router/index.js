@@ -1,7 +1,7 @@
 import { createRouter, createWebHashHistory } from 'vue-router'
 import share_reviews from '../views/share_reviews.vue'
-import booking from '../views/booking.vue'
 
+import booking from '../views/booking.vue'
 import booking_1 from '../views/booking_step_1.vue'
 
 import star_rating from '../views/star_rating.vue'
