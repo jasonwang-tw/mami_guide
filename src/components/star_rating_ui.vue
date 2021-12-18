@@ -5,7 +5,7 @@
       :key="i"
       class="star mx-2"
       :class="{ star_checked: star.status === true }"
-      @click="active = i + 1"
+      @click="click_stop_value(star, i)"
     ></div>
   </div>
 </template>
@@ -40,16 +40,35 @@
         ],
       };
     },
-    watch: {
-      active() {
+    props: {
+      parent_click_stop: Boolean,
+    },
+    watch: {},
+    methods: {
+      click_stop_value(e, i) {
+        var star_len = "";
+
+        if (this.parent_click_stop === true) {
+          star_len = localStorage.getItem("star_length");
+        } else {
+          this.active = i + 1;
+          star_len = this.active;
+
+          this.$emit("child_star", star_len);
+          localStorage.setItem("star_length", star_len);
+        }
+
         this.star_status.forEach((sf) => {
-          if (sf.index <= this.active) {
+          if (sf.index <= star_len) {
             sf.status = true;
           } else {
             sf.status = false;
           }
         });
       },
+    },
+    mounted() {
+      this.click_stop_value();
     },
   };
 </script>

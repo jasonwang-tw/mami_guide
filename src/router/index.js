@@ -11,21 +11,6 @@ import goolge_comment from '../views/goolge_comment.vue'
 const routes = [
   {
     path: '/',
-    name: 'share_reviews',
-    component: share_reviews
-  },
-  {
-    path: '/booking',
-    name: 'booking',
-    component: booking
-  },
-  {
-    path: '/booking_1',
-    name: 'booking_1',
-    component: booking_1
-  },
-  {
-    path: '/star_rating',
     name: 'star_rating',
     component: star_rating
   },
@@ -38,7 +23,24 @@ const routes = [
     path: '/goolge_comment',
     name: 'goolge_comment',
     component: goolge_comment
+  },
+  // ========= 暫不使用
+  {
+    path: '/share_reviews',
+    name: 'share_reviews',
+    component: share_reviews
+  },
+  {
+    path: '/booking',
+    name: 'booking',
+    component: booking
+  },
+  {
+    path: '/booking_1',
+    name: 'booking_1',
+    component: booking_1
   }
+  // ========= 暫不使用
 ]
 
 const router = createRouter({
